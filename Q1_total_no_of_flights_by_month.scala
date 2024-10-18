@@ -13,16 +13,22 @@ val df = spark.read
   .withColumn("flightId", col("flightId").cast(IntegerType))
   .withColumn("date", col("date").cast(DateType))
 
-// Group by flightId and count occurrences
-val flightCountDF = df.groupBy("flightId").count()
+// Extract year and month, and group by them
+val flightCountByMonthDF = df.groupBy(month(col("date")).alias("month"))
+  .agg(count("flightId").alias("uniqueFlightCount"))
+  .orderBy(col("month")) // Order by month
 
 // Show the grouped data
-flightCountDF.show()
+flightCountByMonthDF.show()
 
 // Save the output to a file (e.g., in CSV format)
-flightCountDF.write
+flightCountByMonthDF.write
   .option("header", "true") // Write the header
-  .csv("/home/agileox/Project/assignmentSpark/output/flightCount.csv")
+  .csv("/home/agileox/Project/assignmentSpark/output/flightCountByMonth.csv")
 
 // Stop the Spark session
 spark.stop()
+//df.unpersist() // Unpersist if cached
+//spark.getPersistentRDDs.values.foreach(_.unpersist()) // Clear all cached RDDs
+spark.stop() // Stop the Spark context
+System.gc() // Suggest garbage collection

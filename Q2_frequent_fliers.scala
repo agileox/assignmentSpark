@@ -25,7 +25,6 @@ val joinedDF = flightsDF.join(passengersDF, Seq("passengerId"), "inner") // Inne
 // Group by passengerId, firstName, and lastName, and count occurrences
 val countByPassengerDF = joinedDF.groupBy("passengerId", "firstName", "lastName")
   .agg(count("*").alias("flightCount")) // Count the number of rows for each group
-  .filter(col("flightCount") > 10)
   .orderBy(desc("flightCount")) // Order by flightCount in descending order
 
 // Show the grouped and counted data
