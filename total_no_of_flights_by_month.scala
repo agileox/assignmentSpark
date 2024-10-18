@@ -14,8 +14,9 @@ val df = spark.read
   .withColumn("date", col("date").cast(DateType))
 
 // Extract year and month, and group by them
-val flightCountByMonthDF = df.groupBy(year(col("date")).alias("year"), month(col("date")).alias("month"))
+val flightCountByMonthDF = df.groupBy(month(col("date")).alias("month"))
   .agg(countDistinct("flightId").alias("uniqueFlightCount"))
+  .orderBy(col("month")) // Order by month
 
 // Show the grouped data
 flightCountByMonthDF.show()
@@ -27,3 +28,7 @@ flightCountByMonthDF.write
 
 // Stop the Spark session
 spark.stop()
+//df.unpersist() // Unpersist if cached
+//spark.getPersistentRDDs.values.foreach(_.unpersist()) // Clear all cached RDDs
+spark.stop() // Stop the Spark context
+System.gc() // Suggest garbage collection
