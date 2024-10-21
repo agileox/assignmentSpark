@@ -8,7 +8,7 @@ This is the spark-scala assignment repositories for keeping all codes for refere
 **Table of content**
 - [Description](#description)
 - [Method](#method)
-- [The Questions](#the_questions)
+- [The Questions](#the-questions)
 - [Reference](#reference)
 
 ## Description
