@@ -1,5 +1,7 @@
 # Spark Assignment for Coding assignment from Quantexa
 This is the spark-scala assignment repositories for keeping all codes for reference and evaluation.
+URL: https://github.com/agileox/assignmentSpark
+git clone https://github.com/agileox/assignmentSpark.git
 
 ### Date 
 21/10/2024
@@ -9,7 +11,7 @@ This is the spark-scala assignment repositories for keeping all codes for refere
 - [Method]
 
 # Description
-The assignment has been split into 4 questions; I had been given 2 sets of data 
+The assignment has been split into 4 questions; I had been given 2 sets of data as below:
 
 flightData.csv
 
@@ -20,7 +22,7 @@ passengers.csv
 
 ## Q1 - Find the total number of flights for each month.
 Description
-bla bla bla
+The spark-scala script were develop for getting the total number of flights from the dataset and group by month. The challenge here is to convert the date format to a proper function to get month details and group by month to get the total number of flights.
 
 Code
 ```spark-scala
@@ -77,6 +79,7 @@ Months,Number_Of_Flights
 
 ## Q2 - Find the names of the 100 most frequent fliers
 Description
+The assignment Q2 is to get the frequent fliers form the data sets and to do the merge 2 datasets given to give the output required. 
 
 Code
 ```spark-scala
