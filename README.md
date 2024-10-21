@@ -19,6 +19,8 @@ flightData.csv
 
 passengers.csv
 
+![passengers](images/passengers-image002.png)
+
 ## Method
 
 ### Installing of the Java JDK 1.8
