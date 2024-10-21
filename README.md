@@ -19,8 +19,10 @@ passengers.csv
 # Method
 
 ## Q1 - Find the total number of flights for each month.
+Description
+bla bla bla
 
-code
+Code
 ```spark
 // the library required byt the code
 import org.apache.spark.sql.SparkSession
@@ -56,8 +58,23 @@ flightCountByMonthDF.coalesce(1)
 spark.stop() // Stop the Spark context
 System.gc() // Suggest garbage collection
 ```
-
+Result
 
 ## Q2 - 
+Description
+Code
+```spark-scala
+```
+Result
 ## Q3 - 
+Description
+Code
+```spark-scala
+```
+Result
 ## Q4 -
+Description
+Code
+```spark-scala
+```
+Result
