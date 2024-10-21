@@ -14,6 +14,7 @@ This is the spark-scala assignment repositories for keeping all codes for refere
 The assignment has been split into 4 questions; I had been given 2 sets of data as below:
 
 flightData.csv
+
 ![filghtData](images/flightData-image001.png)
 
 passengers.csv
