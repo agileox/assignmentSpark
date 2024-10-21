@@ -39,21 +39,17 @@ import org.apache.spark.sql.functions._
       .groupBy("passengerId", "uk_group")
       .agg(size(collect_set($"country")).as("country_count"))
       .groupBy("passengerId")
-      .agg(max($"country_count").as("max_non_uk_countries"))
+      .agg(max($"country_count").as("Longest_Run"))
 
     // Show the results
-    result.show()
+    // result.show()
 
     // Save the output to a file (e.g., in CSV format)
     result.coalesce(1)
     .write
     .option("header", "true") // Write the header
-    .csv("/home/agileox/Project/assignmentSpark/output/maxCountriesWithoutUK.csv")
+    .csv("/home/agileox/Project/assignmentSpark/output/Longest_Run_Non_UK")
 
     // Stop the Spark session
     spark.stop()
-    // Optionally clear cached RDDs if needed
-    // df.unpersist()
-    // spark.getPersistentRDDs.values.foreach(_.unpersist())
-    // Suggest garbage collection
     System.gc()
