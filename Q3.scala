@@ -16,8 +16,8 @@ val df = spark.read
 val resultDf = df
   .groupBy("passengerId")
   .agg(collect_list("to").as("countries")) // Use collect_list directly
-  .withColumn("filteredCountries", size(array_remove(array_distinct(col("countries")), "UK"))) // Use col() for column references
-  .select("passengerId", "filteredCountries")
+  .withColumn("longestRun", size(array_remove(array_distinct(col("countries")), "UK"))) // Use col() for column references
+  .select("passengerId", "longestRun")
 
 //resultDf.show()
 
