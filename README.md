@@ -2,10 +2,8 @@
 This is the spark-scala assignment repositories for keeping all codes for reference and evaluation.
 - URL: https://github.com/agileox/assignmentSpark
 - git clone https://github.com/agileox/assignmentSpark.git
-
-### Date 
-21/10/2024
-by: Adi Yusman - _Agileox_
+ 
+21/10/2024, by: Adi Yusman - _Agileox_
 
 **Table of content**
 - [Description]
