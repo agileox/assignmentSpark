@@ -9,6 +9,13 @@ This is the spark-scala assignment repositories for keeping all codes for refere
 - [Method]
 
 # Description
-The assignment has been split into 4 questions
+The assignment has been split into 4 questions; I had been given 2 sets of data 
+
+flightData.csv
+
+
+passengers.csv
+
+
 
 # Method
