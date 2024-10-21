@@ -1,4 +1,6 @@
-# assignmentSpark
-repo for spark assignment 
+# Spark Assignment for Coding assignment from Quantexa
+repositories for spark-scala assignment 
 
-spark-shell -i total_no_of_flights_by_month.scala --driver-memory 4g --executor-memory 4g
+# Description
+
+# Method
