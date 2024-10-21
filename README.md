@@ -65,6 +65,7 @@ $ scala -version
 Scala code runner version 2.12.10 -- Copyright 2002-2019, LAMP/EPFL and Lightbend, Inc.
 $
 ## The Questions
+```
 
 ### Q1 - Find the total number of flights for each month.
 Description
