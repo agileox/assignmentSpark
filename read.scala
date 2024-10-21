@@ -20,4 +20,3 @@ df.show()
 
 // Stop the Spark session
 spark.stop()
-
