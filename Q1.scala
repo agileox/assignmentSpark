@@ -22,7 +22,8 @@ val flightCountByMonthDF = df.groupBy(month(col("date")).alias("month"))
 flightCountByMonthDF.show()
 
 // Save the output to a file (e.g., in CSV format)
-flightCountByMonthDF.write
+flightCountByMonthDF.coalesce(1)
+  .write
   .option("header", "true") // Write the header
   .csv("/home/agileox/Project/assignmentSpark/output/flightCountByMonth.csv")
 
