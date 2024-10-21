@@ -6,8 +6,10 @@ This is the spark-scala assignment repositories for keeping all codes for refere
 21/10/2024, by: Adi Yusman - _Agileox_
 
 **Table of content**
-- [Description]
-- [Method]
+- [Description](#description)
+- [Method](#method)
+- [The Questions](#the_questions)
+- [Reference](#reference)
 
 ## Description
 The assignment has been split into 4 questions; I had been given 2 sets of data as below:
