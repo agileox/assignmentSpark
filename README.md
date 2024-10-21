@@ -1,7 +1,7 @@
 # Spark Assignment for Coding assignment from Quantexa
 This is the spark-scala assignment repositories for keeping all codes for reference and evaluation.
-. URL: https://github.com/agileox/assignmentSpark
-. git clone https://github.com/agileox/assignmentSpark.git
+- URL: https://github.com/agileox/assignmentSpark
+- git clone https://github.com/agileox/assignmentSpark.git
 
 ### Date 
 21/10/2024
