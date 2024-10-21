@@ -10,7 +10,7 @@ git clone https://github.com/agileox/assignmentSpark.git
 - [Description]
 - [Method]
 
-# Description
+## Description
 The assignment has been split into 4 questions; I had been given 2 sets of data as below:
 
 flightData.csv
@@ -18,11 +18,11 @@ flightData.csv
 
 passengers.csv
 
-# Method
+## Method
 
-## Installing of the Java JDK 1.8
-## Installing of the spark-2.4.8
-## Installing of the scala-2.12.10
+### Installing of the Java JDK 1.8
+### Installing of the spark-2.4.8
+### Installing of the scala-2.12.10
 
 ## The Questions
 
