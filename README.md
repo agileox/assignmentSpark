@@ -14,7 +14,7 @@ This is the spark-scala assignment repositories for keeping all codes for refere
 The assignment has been split into 4 questions; I had been given 2 sets of data as below:
 
 flightData.csv
-
+![filghtData](images/flightData-image001.png)
 
 passengers.csv
 
@@ -69,7 +69,7 @@ System.gc() // Suggest garbage collection
 
 Execute the command
 ```bash
-spark-shell -i Q1.scala --driver-memory 1g --executor-memory 1g
+$ spark-shell -i Q1.scala --driver-memory 1g --executor-memory 1g
 ```
 
 Sample-Result
@@ -141,7 +141,7 @@ System.gc() // Suggest garbage collection
 
 Execute the command
 ```bash
-spark-shell -i Q2.scala --driver-memory 1g --executor-memory 1g
+$ spark-shell -i Q2.scala --driver-memory 1g --executor-memory 1g
 ```
 
 Sample-Result
@@ -232,7 +232,7 @@ import org.apache.spark.sql.functions._
 
 Execute the command
 ```bash
-spark-shell -i Q3.scala --driver-memory 1g --executor-memory 1g
+$ spark-shell -i Q3.scala --driver-memory 1g --executor-memory 1g
 ```
 
 Sample-Result
@@ -310,7 +310,7 @@ System.gc()
 
 Execute the command
 ```bash
-spark-shell -i Q4.scala --driver-memory 1g --executor-memory 1g
+$ spark-shell -i Q4.scala --driver-memory 1g --executor-memory 1g
 ```
 
 Sample-Result
