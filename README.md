@@ -210,7 +210,7 @@ passengerId,firstName,lastName,Number_of_Flights
 ```
 ### Q3 - Find the greatest number of countries a passenger has been in without being in the UK. 
 Description
-For example, if the countries a passenger was in were: UK -> FR -> US -> CN -> UK -> DE -> UK, the correct answer would be 3 countries. This is the most challenging question where I need to do the Union first to combine the data and 
+For example, if the countries a passenger was in were: UK -> FR -> US -> CN -> UK -> DE -> UK, the correct answer would be 3 countries. This is the most challenging question where I need to do the Union first to combine the data and proceed with doing the filter and subsequently group by the data to come out with the expected result.
 
 Code
 ```spark-scala
@@ -299,8 +299,11 @@ passengerId,Longest_Run
 2866,3
 3175,8
 ```
-### Q4 -
+### Q4 - Question no 4 is the assignment to find the passengers who have been more than 3 flights together. 
+
 Description
+The code need to handle the doing the group by flightID, then split the passengers to get individual passengers. Then keep the unique pairs, then count how many flights they took together. Finally sort the data in decending order.
+
 Code
 ```spark-scala
 import org.apache.spark.sql.SparkSession
