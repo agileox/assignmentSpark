@@ -25,9 +25,44 @@ passengers.csv
 ## Method
 
 ### Installing of the Java JDK 1.8
+```bash
+$ sudo dnf install java-1.8.0-openjdk-devel
+$ java -version
+openjdk version "1.8.0_422"
+OpenJDK Runtime Environment (build 1.8.0_422-b05)
+OpenJDK 64-Bit Server VM (build 25.422-b05, mixed mode)
+$
+```
 ### Installing of the spark-2.4.8
-### Installing of the scala-2.12.10
+```bash
+$ wget https://archive.apache.org/dist/spark/spark-2.4.8/spark-2.4.8-bin-hadoop2.7.tgz 
+$ tar -xvzf spark-2.4.8-bin-hadoop2.7.tgz
+$ sudo mv spark-2.4.8-bin-hadoop2.7 /opt/spark
+$ ls -l 
+$ spark-shell -version
+$
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 2.4.8
+      /_/
+                        
+Using Scala version 2.11.12, OpenJDK 64-Bit Server VM, 1.8.0_422
+Branch HEAD
+Compiled by user viirya on 2021-05-08T08:01:33Z
+Revision 4be40640e063612aa50772b2ceeca1c930029553
+Url https://gitbox.apache.org/repos/asf/spark.git
+Type --help for more information.
+```
 
+### Installing of the scala-2.12.10
+```bash
+$ wget https://downloads.lightbend.com/scala/2.12.10/scala-2.12.10.rpm
+$ rpm -ivh scala-2.12.10.rpm
+$ scala -version
+Scala code runner version 2.12.10 -- Copyright 2002-2019, LAMP/EPFL and Lightbend, Inc.
+$
 ## The Questions
 
 ### Q1 - Find the total number of flights for each month.
