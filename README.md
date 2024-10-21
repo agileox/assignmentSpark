@@ -31,8 +31,9 @@ $ java -version
 openjdk version "1.8.0_422"
 OpenJDK Runtime Environment (build 1.8.0_422-b05)
 OpenJDK 64-Bit Server VM (build 25.422-b05, mixed mode)
-$
+
 ```
+
 ### Installing of the spark-2.4.8
 ```bash
 $ wget https://archive.apache.org/dist/spark/spark-2.4.8/spark-2.4.8-bin-hadoop2.7.tgz 
