@@ -380,7 +380,106 @@ passenger1,passenger2,Number_Of_Flights_Together
 3021,9522,12
 2926,3590,12
 ```
+### Extra Question - Find the passengers who have been on more than N flights together within the range (from,to).
+Description
+the most hardest and I just get ChatGPT to advice, but i'm still doubt witht the code.
+
+Code
+```spark-scala
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions._
+import org.apache.spark.sql.types._
+
+// Initialize Spark session
+val spark = SparkSession.builder.appName("PassengerPairs").getOrCreate()
+
+// Read the CSV data
+val df = spark.read
+  .option("header", "true")
+  .csv("/home/agileox/Project/assignmentSpark/data/flightData.csv")
+  .withColumn("passengerId", col("passengerId").cast(IntegerType))
+  .withColumn("flightId", col("flightId").cast(IntegerType))
+  .withColumn("date", col("date").cast(DateType))
+
+// Group by flightId to get the passengers for each flight along with flight details
+val flightsDF = df.groupBy("flightId", "from", "to", "date") // Group by flightId, from, to, and date
+  .agg(collect_list("passengerId").alias("passengers")) // Collect passengers for each flight
+
+// Create pairs of passengers for each flight and count flights together
+val passengerPairsDF = flightsDF
+  .withColumn("passenger1", explode(col("passengers"))) // Explode to get individual passengers
+  .withColumn("passenger2", explode(col("passengers"))) // Create pairs by exploding again
+  .filter(col("passenger1") < col("passenger2")) // Keep unique pairs (to avoid duplicates)
+  .groupBy("passenger1", "passenger2") // Group by passenger1 and passenger2
+  .agg(
+    count("flightId").alias("number_of_flights_together"), // Count how many flights they took together
+    first("from").alias("from"), // Get the departure location
+    first("to").alias("to"), // Get the destination location
+    min("date").alias("from_date"), // Get the earliest date for the flight
+    max("date").alias("to_date") // Get the latest date for the flight
+  )
+
+// Format the output columns to match desired output
+val finalOutputDF = passengerPairsDF
+  .select(
+    col("passenger1"),
+    col("passenger2"),
+    col("number_of_flights_together"),
+    concat(lit("from ("), col("from_date"), lit(")"), lit(" "), col("from")).alias("from (date)"), // Format the 'from' column
+    concat(lit("to ("), col("to_date"), lit(")"), lit(" "), col("to")).alias("to (date)") // Format the 'to' column
+  )
+
+// Sort the results by number_of_flights_together in descending order
+val sortedPassengerPairsDF = finalOutputDF
+  .orderBy(desc("number_of_flights_together")) // Sort by number_of_flights_together in descending order
+
+// Show the result
+//sortedPassengerPairsDF.show(truncate = false)
+
+// Save the output to a file (e.g., in CSV format)
+sortedPassengerPairsDF.coalesce(1) // Ensure single file output
+  .write
+  .option("header", "true") // Write the header
+  .csv("/home/agileox/Project/assignmentSpark/output/extra") // Specify output location
+
+// Stop the Spark context and suggest garbage collection
+spark.stop()
+System.gc()
+
+```
+
+Execution of command
+```bash
+$ spark-shell -i extra.scala --driver-memory 1g --executor-memory 1g
+```
+
+Sample-Result
+```csv
+passenger1,passenger2,number_of_flights_together,from (date),to (date)
+701,760,15,from (2017-01-02) us,to (2017-05-30) tj
+3503,3590,14,from (2017-01-15) uk,to (2017-06-24) nl
+2717,2759,14,from (2017-01-10) au,to (2017-05-03) sg
+2939,5490,13,from (2017-02-22) co,to (2017-06-05) be
+2939,4395,12,from (2017-02-07) co,to (2017-05-19) be
+7877,9252,12,from (2017-09-10) jo,to (2017-11-24) bm
+760,763,12,from (2017-01-02) us,to (2017-05-12) tj
+701,763,12,from (2017-01-02) us,to (2017-05-12) tj
+1337,1484,12,from (2017-02-04) us,to (2017-05-13) ar
+366,374,12,from (2017-01-01) us,to (2017-03-25) tj
+2759,4316,12,from (2017-02-07) au,to (2017-05-09) sg
+1208,3093,12,from (2017-02-02) il,to (2017-06-05) tk
+2550,4441,12,from (2017-02-12) ar,to (2017-06-11) cl
+4316,4373,12,from (2017-01-24) au,to (2017-05-09) sg
+4395,4399,12,from (2017-01-24) co,to (2017-05-12) be
+3278,5423,12,from (2017-04-17) tk,to (2017-06-25) pk
+1337,2867,12,from (2017-02-04) au,to (2017-08-13) sg
+3021,9522,12,from (2017-05-14) cl,to (2017-10-15) dk
+2926,3590,12,from (2017-03-27) nl,to (2017-06-24) be
+```
 
 ## Reference
+- Github.com
+- Google
+- ChatGPT
 
 - [^Top](#spark-assignment-for-coding-assignment-from-quantexa)
