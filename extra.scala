@@ -52,7 +52,7 @@ val sortedPassengerPairsDF = finalOutputDF
 sortedPassengerPairsDF.coalesce(1) // Ensure single file output
   .write
   .option("header", "true") // Write the header
-  .csv("/home/agileox/Project/assignmentSpark/output/Extra") // Specify output location
+  .csv("/home/agileox/Project/assignmentSpark/output/extra") // Specify output location
 
 // Stop the Spark context and suggest garbage collection
 spark.stop()
