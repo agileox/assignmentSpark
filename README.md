@@ -20,7 +20,13 @@ passengers.csv
 
 # Method
 
-## Q1 - Find the total number of flights for each month.
+## Installing of the Java JDK 1.8
+## Installing of the spark-2.4.8
+## Installing of the scala-2.12.10
+
+## The Questions
+
+### Q1 - Find the total number of flights for each month.
 Description
 The spark-scala script were develop for getting the total number of flights from the dataset and group by month. The challenge here is to convert the date format to a proper function to get month details and group by month to get the total number of flights.
 
@@ -60,6 +66,12 @@ flightCountByMonthDF.coalesce(1)
 spark.stop() // Stop the Spark context
 System.gc() // Suggest garbage collection
 ```
+
+Execute the command
+```bash
+spark-shell -i Q1.scala --driver-memory 1g --executor-memory 1g
+```
+
 Sample-Result
 ```csv
 Months,Number_Of_Flights
@@ -77,9 +89,9 @@ Months,Number_Of_Flights
 12,9400
 ```
 
-## Q2 - Find the names of the 100 most frequent fliers
+### Q2 - Find the names of the 100 most frequent fliers
 Description
-The assignment Q2 is to get the frequent fliers form the data sets and to do the merge 2 datasets given to give the output required. 
+The assignment Q2 is to get the frequent fliers form the data sets and to do the merge 2 datasets given to give the output required. After doing the code for getting the output, there are challenges like joined features, group by passengers ID and finally the output come out with no 100 most frequent fliers. The most is 32.
 
 Code
 ```spark-scala
@@ -125,8 +137,13 @@ countByPassengerDF.coalesce(1)
 // Stop the Spark session
 spark.stop() // Stop the Spark context
 System.gc() // Suggest garbage collection
-
 ```
+
+Execute the command
+```bash
+spark-shell -i Q2.scala --driver-memory 1g --executor-memory 1g
+```
+
 Sample-Result
 ```csv
 passengerId,firstName,lastName,Number_of_Flights
@@ -150,9 +167,9 @@ passengerId,firstName,lastName,Number_of_Flights
 5668,Gladis,Earlene,24
 3405,Johna,Ollie,23
 ```
-## Q3 - Find the greatest number of countries a passenger has been in without being in the UK. 
+### Q3 - Find the greatest number of countries a passenger has been in without being in the UK. 
 Description
-For example, if the countries a passenger was in were: UK -> FR -> US -> CN -> UK -> DE -> UK, the correct answer would be 3 countries
+For example, if the countries a passenger was in were: UK -> FR -> US -> CN -> UK -> DE -> UK, the correct answer would be 3 countries. This is the most challenging question where I need to do the Union first to combine the data and 
 
 Code
 ```spark-scala
@@ -212,6 +229,12 @@ import org.apache.spark.sql.functions._
     spark.stop()
     System.gc()
 ```
+
+Execute the command
+```bash
+spark-shell -i Q3.scala --driver-memory 1g --executor-memory 1g
+```
+
 Sample-Result
 ```csv
 passengerId,Longest_Run
@@ -235,7 +258,7 @@ passengerId,Longest_Run
 2866,3
 3175,8
 ```
-## Q4 -
+### Q4 -
 Description
 Code
 ```spark-scala
@@ -283,8 +306,13 @@ sortedPassengerPairsDF.coalesce(1) // Ensure single file output
 // Stop the Spark context and suggest garbage collection
 spark.stop()
 System.gc()
-
 ```
+
+Execute the command
+```bash
+spark-shell -i Q4.scala --driver-memory 1g --executor-memory 1g
+```
+
 Sample-Result
 ```csv
 passenger1,passenger2,Number_Of_Flights_Together
